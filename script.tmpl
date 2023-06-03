@@ -1,0 +1,27 @@
+// {{ .Class }} Migration file
+package {{ .Class }}
+
+import (
+    "github.com/dimonrus/godb/v2"
+    "{{ .RegistryPath }}"
+)
+
+type {{ .MigrationTypeName }} struct {}
+
+func init() {
+    {{ .RegistryXPath }}["{{ .Class }}"] = append({{ .RegistryXPath }}["{{ .Class }}"], {{ .MigrationTypeName }}{})
+}
+
+func (m {{ .MigrationTypeName }}) GetVersion () string {
+    return "{{ .MigrationTypeName }}"
+}
+
+func (m {{ .MigrationTypeName }}) Up (tx *godb.SqlTx) error {
+    // write code here
+    return nil
+}
+
+func (m {{ .MigrationTypeName }}) Down (tx *godb.SqlTx) error {
+    // write code here
+    return nil
+}
